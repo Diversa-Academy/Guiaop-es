@@ -96,16 +96,14 @@
         
         <!-- Background Overlay com Gráfico de Candlestick Animado -->
         <div class="absolute inset-0 z-0">
-            <!-- Camada do Gráfico Animado (opacidade levemente aumentada para 0.25) -->
+            <!-- Camada do Gráfico Animado -->
             <div class="absolute inset-0 flex animate-chart-bg opacity-[0.25]">
                 
                 <!-- SVG 1 (Gráfico Candlestick) -->
                 <svg viewBox="0 0 1000 400" preserveAspectRatio="none" class="w-1/2 h-full">
-                    <!-- Grid Lines (Fundo do gráfico) -->
                     <path d="M0,50 L1000,50 M0,100 L1000,100 M0,150 L1000,150 M0,200 L1000,200 M0,250 L1000,250 M0,300 L1000,300 M0,350 L1000,350" stroke="rgba(255,255,255,0.03)" stroke-width="1" />
                     <path d="M50,0 L50,400 M150,0 L150,400 M250,0 L250,400 M350,0 L350,400 M450,0 L450,400 M550,0 L550,400 M650,0 L650,400 M750,0 L750,400 M850,0 L850,400 M950,0 L950,400" stroke="rgba(255,255,255,0.03)" stroke-width="1" />
                     
-                    <!-- Candlesticks -->
                     <g stroke-width="2">
                         <!-- Velas Verdes (Alta) -->
                         <g stroke="#16a34a" fill="#16a34a">
@@ -121,7 +119,6 @@
                             <line x1="825" y1="90" x2="825" y2="170"/><rect x="815" y="110" width="20" height="50" rx="2"/>
                             <line x1="875" y1="40" x2="875" y2="130"/><rect x="865" y="60" width="20" height="60" rx="2"/>
                         </g>
-
                         <!-- Velas Vermelhas (Baixa) -->
                         <g stroke="#dc2626" fill="#dc2626">
                             <line x1="75" y1="120" x2="75" y2="200"/><rect x="65" y="140" width="20" height="40" rx="2"/>
@@ -137,15 +134,11 @@
                     </g>
                 </svg>
 
-                <!-- SVG 2 (Cópia exata para o loop infinito funcionar perfeitamente) -->
+                <!-- SVG 2 (Cópia exata para o loop) -->
                 <svg viewBox="0 0 1000 400" preserveAspectRatio="none" class="w-1/2 h-full">
-                    <!-- Grid Lines (Fundo do gráfico) -->
                     <path d="M0,50 L1000,50 M0,100 L1000,100 M0,150 L1000,150 M0,200 L1000,200 M0,250 L1000,250 M0,300 L1000,300 M0,350 L1000,350" stroke="rgba(255,255,255,0.03)" stroke-width="1" />
                     <path d="M50,0 L50,400 M150,0 L150,400 M250,0 L250,400 M350,0 L350,400 M450,0 L450,400 M550,0 L550,400 M650,0 L650,400 M750,0 L750,400 M850,0 L850,400 M950,0 L950,400" stroke="rgba(255,255,255,0.03)" stroke-width="1" />
-                    
-                    <!-- Candlesticks -->
                     <g stroke-width="2">
-                        <!-- Velas Verdes (Alta) -->
                         <g stroke="#16a34a" fill="#16a34a">
                             <line x1="25" y1="150" x2="25" y2="250"/><rect x="15" y="170" width="20" height="60" rx="2"/>
                             <line x1="125" y1="130" x2="125" y2="220"/><rect x="115" y="135" width="20" height="50" rx="2"/>
@@ -159,8 +152,6 @@
                             <line x1="825" y1="90" x2="825" y2="170"/><rect x="815" y="110" width="20" height="50" rx="2"/>
                             <line x1="875" y1="40" x2="875" y2="130"/><rect x="865" y="60" width="20" height="60" rx="2"/>
                         </g>
-
-                        <!-- Velas Vermelhas (Baixa) -->
                         <g stroke="#dc2626" fill="#dc2626">
                             <line x1="75" y1="120" x2="75" y2="200"/><rect x="65" y="140" width="20" height="40" rx="2"/>
                             <line x1="225" y1="70" x2="225" y2="180"/><rect x="215" y="90" width="20" height="70" rx="2"/>
@@ -362,35 +353,35 @@
 
             <!-- Form -->
             <div class="p-8">
-                <form class="space-y-4" action="#" method="POST">
+                <form id="leadForm" class="space-y-4">
                     
                     <div>
                         <label class="block text-xs font-medium text-gray-400 mb-1 ml-1">Nome Completo</label>
-                        <input type="text" required placeholder="Digite seu nome" class="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition">
+                        <input type="text" name="nome" required placeholder="Digite seu nome" class="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition">
                     </div>
 
                     <div>
                         <label class="block text-xs font-medium text-gray-400 mb-1 ml-1">E-mail</label>
-                        <input type="email" required placeholder="seu@email.com" class="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition">
+                        <input type="email" name="email" required placeholder="seu@email.com" class="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition">
                     </div>
 
                     <div>
                         <label class="block text-xs font-medium text-gray-400 mb-1 ml-1">WhatsApp</label>
-                        <input type="tel" required placeholder="(00) 00000-0000" class="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition">
+                        <input type="tel" name="whatsapp" required placeholder="(00) 00000-0000" class="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition">
                     </div>
 
                     <div>
                         <label class="block text-xs font-medium text-gray-400 mb-1 ml-1">Você já opera renda variável?</label>
-                        <select required class="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition appearance-none">
+                        <select name="perfil" required class="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition appearance-none">
                             <option value="" disabled selected class="text-gray-500">Selecione uma opção...</option>
-                            <option value="sim" class="bg-[#050A12] text-white">Sim, já opero.</option>
-                            <option value="nao" class="bg-[#050A12] text-white">Não, invisto apenas em Renda Fixa.</option>
-                            <option value="aprendendo" class="bg-[#050A12] text-white">Ainda estou aprendendo a investir.</option>
+                            <option value="Sim, já opero" class="bg-[#050A12] text-white">Sim, já opero.</option>
+                            <option value="Não, invisto apenas em Renda Fixa" class="bg-[#050A12] text-white">Não, invisto apenas em Renda Fixa.</option>
+                            <option value="Ainda estou aprendendo" class="bg-[#050A12] text-white">Ainda estou aprendendo a investir.</option>
                         </select>
                     </div>
 
-                    <button type="submit" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-semibold py-4 rounded-xl mt-4 transition flex items-center justify-center gap-2">
-                        RECEBER MEU E-BOOK <i class="ph ph-paper-plane-tilt text-lg"></i>
+                    <button type="submit" id="submitBtn" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-semibold py-4 rounded-xl mt-4 transition flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed">
+                        <span id="btnText">RECEBER MEU E-BOOK</span> <i class="ph ph-paper-plane-tilt text-lg"></i>
                     </button>
                     <p class="text-[10px] text-gray-500 text-center mt-3 flex items-center justify-center gap-1">
                         <i class="ph-fill ph-lock-key"></i> Seus dados estão seguros conosco.
@@ -400,23 +391,20 @@
         </div>
     </div>
 
-    <!-- Script do Modal -->
+    <!-- Script do Modal e Envio para Google Sheets -->
     <script>
+        // Lógica do Modal
         const modal = document.getElementById('leadModal');
         const body = document.body;
 
         function openModal() {
             modal.classList.remove('hidden');
             body.classList.add('modal-active');
-            
-            setTimeout(() => {
-                modal.style.opacity = '1';
-            }, 10);
+            setTimeout(() => { modal.style.opacity = '1'; }, 10);
         }
 
         function closeModal() {
             modal.style.opacity = '0';
-            
             setTimeout(() => {
                 modal.classList.add('hidden');
                 body.classList.remove('modal-active');
@@ -427,6 +415,42 @@
             if (e.target === modal) {
                 closeModal();
             }
+        });
+
+        // Lógica de Integração com Google Sheets
+        const form = document.getElementById('leadForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const btnText = document.getElementById('btnText');
+        
+        // =============== MUITO IMPORTANTE ===============
+        // Troque o link abaixo pela URL que o Apps Script gerou para você!
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbwk4dePHHOfI7s5eEhZIbNC59u6xnXr45a6zAQiiHBJOak5TttBFehw1mYh01Lbtr4/exec';
+        // ================================================
+
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            
+            // Estado de carregamento
+            btnText.innerText = 'Enviando...';
+            submitBtn.disabled = true;
+
+            fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                .then(response => {
+                    // O que acontece quando dá certo
+                    alert('Cadastro realizado com sucesso! Em breve você receberá o guia.');
+                    form.reset();
+                    closeModal();
+                    
+                    // Restaura o botão
+                    btnText.innerText = 'RECEBER MEU E-BOOK';
+                    submitBtn.disabled = false;
+                })
+                .catch(error => {
+                    // O que acontece se der erro
+                    alert('Ocorreu um erro ao enviar. Por favor, tente novamente.');
+                    btnText.innerText = 'RECEBER MEU E-BOOK';
+                    submitBtn.disabled = false;
+                });
         });
     </script>
 </body>
